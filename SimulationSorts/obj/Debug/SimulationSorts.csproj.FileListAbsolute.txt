@@ -45,7 +45,6 @@ E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\Simulation
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\bin\Debug\ja\DevExpress.Pdf.v19.1.Core.resources.dll
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\bin\Debug\ru\DevExpress.Pdf.v19.1.Core.resources.dll
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.csprojAssemblyReference.cache
-E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.Form1.resources
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.Properties.Resources.resources
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.csproj.GenerateResource.cache
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.exe.licenses
@@ -53,3 +52,5 @@ E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\Simulation
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.csproj.CopyComplete
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.exe
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.pdb
+E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.frmMain.resources
+E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.frmNhapDuLieuMang.resources
