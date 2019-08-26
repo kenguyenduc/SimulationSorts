@@ -10,25 +10,24 @@ using System.Windows.Forms;
 
 namespace SimulationSorts
 {
-    public partial class frmKhoiTaoNgauNhien : Form
+    public partial class Form2 : Form
     {
-        public delegate void SendMessage(int _soPhanTu);
-        public SendMessage SenderData;
+        public delegate void SendMessage(string message);
+        public SendMessage Sender;
 
-        public frmKhoiTaoNgauNhien()
+        public Form2()
         {
             InitializeComponent();
         }
-        public frmKhoiTaoNgauNhien(SendMessage _sender)
+        public Form2(SendMessage _sender)
         {
             InitializeComponent();
-            this.SenderData = _sender;
+            this.Sender = _sender;
         }
 
-
-        private void btnTaoMang_Click(object sender, EventArgs e)
+        private void btnForm2_Click(object sender, EventArgs e)
         {
-            SenderData(Int32.Parse(numSoPhanTu.Value + ""));
+            Sender(txtForm2.Text.ToString());
             this.Close();
         }
     }

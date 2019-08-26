@@ -54,3 +54,6 @@ E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\Simulation
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.pdb
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.frmMain.resources
 E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.frmNhapDuLieuMang.resources
+E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.Form1.resources
+E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.Form2.resources
+E:\Documents_DUC_KE\ProjectVisualStudio\LapTrinhTrucQuanHK9\MyProject\SimulationSorts\SimulationSorts\obj\Debug\SimulationSorts.frmKhoiTaoNgauNhien.resources

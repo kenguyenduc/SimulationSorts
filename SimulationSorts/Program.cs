@@ -21,6 +21,7 @@ namespace SimulationSorts
             BonusSkins.Register();
             Application.Run(new frmMain());
             //Application.Run(new frmNhapDuLieuMang());
+            //Application.Run(new Form1());
         }
     }
 }

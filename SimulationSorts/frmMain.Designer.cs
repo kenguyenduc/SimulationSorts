@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapNgauNhien = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapTuBanPhim = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapTuFile = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
@@ -56,7 +56,7 @@
             this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnNgauNhien = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThayDoiNgauNhien = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,9 +65,6 @@
             this.BtnThucHien = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnTaoNut = new System.Windows.Forms.Button();
-            this.txtSoNut = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.grboxThuatToan = new System.Windows.Forms.GroupBox();
             this.radiobtnGiamDan = new System.Windows.Forms.RadioButton();
             this.comboBoxThuanToan = new System.Windows.Forms.ComboBox();
@@ -75,6 +72,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.bgWorkerBubbleSort = new System.ComponentModel.BackgroundWorker();
+            this.txtTest = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -92,9 +90,9 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
+            this.btnNhapNgauNhien,
+            this.btnNhapTuBanPhim,
+            this.btnNhapTuFile,
             this.barButtonItem4,
             this.barButtonItem5,
             this.barButtonItem6,
@@ -107,31 +105,34 @@
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage3});
-            this.ribbonControl1.Size = new System.Drawing.Size(941, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(1040, 143);
             // 
-            // barButtonItem1
+            // btnNhapNgauNhien
             // 
-            this.barButtonItem1.Caption = "Ngẫu nhiên";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnNhapNgauNhien.Caption = "Ngẫu nhiên";
+            this.btnNhapNgauNhien.Id = 1;
+            this.btnNhapNgauNhien.Name = "btnNhapNgauNhien";
+            this.btnNhapNgauNhien.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnNhapNgauNhien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapNgauNhien_ItemClick);
             // 
-            // barButtonItem2
+            // btnNhapTuBanPhim
             // 
-            this.barButtonItem2.Caption = "Nhập từ bàn phím";
-            this.barButtonItem2.Id = 2;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnNhapTuBanPhim.Caption = "Nhập từ bàn phím";
+            this.btnNhapTuBanPhim.Id = 2;
+            this.btnNhapTuBanPhim.Name = "btnNhapTuBanPhim";
+            this.btnNhapTuBanPhim.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnNhapTuBanPhim.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapTuBanPhim_ItemClick);
             // 
-            // barButtonItem3
+            // btnNhapTuFile
             // 
-            this.barButtonItem3.Caption = "Mở file";
-            this.barButtonItem3.Id = 3;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            this.btnNhapTuFile.Caption = "Nhập từ file ( .txt )";
+            this.btnNhapTuFile.Id = 3;
+            this.btnNhapTuFile.Name = "btnNhapTuFile";
+            this.btnNhapTuFile.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnNhapTuFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapTuFile_ItemClick);
             // 
             // barButtonItem4
             // 
@@ -187,10 +188,9 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnNhapNgauNhien);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnNhapTuBanPhim);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnNhapTuFile);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Khởi tạo";
             // 
@@ -231,15 +231,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 143);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 542);
+            this.panel1.Size = new System.Drawing.Size(1040, 552);
             this.panel1.TabIndex = 1;
             // 
             // pnNut
             // 
             this.pnNut.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnNut.Location = new System.Drawing.Point(0, 317);
+            this.pnNut.Location = new System.Drawing.Point(0, 327);
             this.pnNut.Name = "pnNut";
-            this.pnNut.Size = new System.Drawing.Size(941, 225);
+            this.pnNut.Size = new System.Drawing.Size(1040, 225);
             this.pnNut.TabIndex = 1;
             // 
             // groupBox5
@@ -329,7 +329,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnNgauNhien);
+            this.groupBox1.Controls.Add(this.btnThayDoiNgauNhien);
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Location = new System.Drawing.Point(7, 145);
             this.groupBox1.Name = "groupBox1";
@@ -338,13 +338,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thay đổi giá trị của mảng";
             // 
-            // btnNgauNhien
+            // btnThayDoiNgauNhien
             // 
-            this.btnNgauNhien.Location = new System.Drawing.Point(84, 28);
-            this.btnNgauNhien.Name = "btnNgauNhien";
-            this.btnNgauNhien.Size = new System.Drawing.Size(75, 23);
-            this.btnNgauNhien.TabIndex = 1;
-            this.btnNgauNhien.Text = "Ngẫu nhiên";
+            this.btnThayDoiNgauNhien.Location = new System.Drawing.Point(84, 28);
+            this.btnThayDoiNgauNhien.Name = "btnThayDoiNgauNhien";
+            this.btnThayDoiNgauNhien.Size = new System.Drawing.Size(75, 23);
+            this.btnThayDoiNgauNhien.TabIndex = 1;
+            this.btnThayDoiNgauNhien.Text = "Ngẫu nhiên";
             // 
             // groupBox6
             // 
@@ -411,41 +411,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnTaoNut);
-            this.groupBox2.Controls.Add(this.txtSoNut);
-            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.txtTest);
             this.groupBox2.Location = new System.Drawing.Point(646, 7);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(283, 301);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Code mẫu";
-            // 
-            // btnTaoNut
-            // 
-            this.btnTaoNut.Location = new System.Drawing.Point(70, 92);
-            this.btnTaoNut.Name = "btnTaoNut";
-            this.btnTaoNut.Size = new System.Drawing.Size(75, 23);
-            this.btnTaoNut.TabIndex = 2;
-            this.btnTaoNut.Text = "Tạo nút";
-            this.btnTaoNut.UseVisualStyleBackColor = true;
-            this.btnTaoNut.Click += new System.EventHandler(this.btnTaoNut_Click);
-            // 
-            // txtSoNut
-            // 
-            this.txtSoNut.Location = new System.Drawing.Point(70, 55);
-            this.txtSoNut.Name = "txtSoNut";
-            this.txtSoNut.Size = new System.Drawing.Size(83, 21);
-            this.txtSoNut.TabIndex = 0;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 58);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Số nút:";
             // 
             // grboxThuatToan
             // 
@@ -530,11 +502,19 @@
             this.bgWorkerBubbleSort.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerBubbleSort_ProgressChanged);
             this.bgWorkerBubbleSort.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerBubbleSort_RunWorkerCompleted);
             // 
+            // txtTest
+            // 
+            this.txtTest.Location = new System.Drawing.Point(24, 83);
+            this.txtTest.Multiline = true;
+            this.txtTest.Name = "txtTest";
+            this.txtTest.Size = new System.Drawing.Size(223, 159);
+            this.txtTest.TabIndex = 0;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 685);
+            this.ClientSize = new System.Drawing.Size(1040, 695);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "frmMain";
@@ -565,9 +545,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem btnNhapNgauNhien;
+        private DevExpress.XtraBars.BarButtonItem btnNhapTuBanPhim;
+        private DevExpress.XtraBars.BarButtonItem btnNhapTuFile;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
@@ -591,7 +571,7 @@
         private DevExpress.XtraEditors.SimpleButton btnTamDung;
         private DevExpress.XtraEditors.SimpleButton btnHuyQuaTrinh;
         private DevExpress.XtraEditors.SimpleButton btnHuyBo;
-        private DevExpress.XtraEditors.SimpleButton btnNgauNhien;
+        private DevExpress.XtraEditors.SimpleButton btnThayDoiNgauNhien;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label5;
@@ -605,10 +585,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraEditors.SimpleButton BtnThucHien;
-        private System.Windows.Forms.TextBox txtSoNut;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnTaoNut;
         private System.ComponentModel.BackgroundWorker bgWorkerBubbleSort;
+        private System.Windows.Forms.TextBox txtTest;
     }
 }
 

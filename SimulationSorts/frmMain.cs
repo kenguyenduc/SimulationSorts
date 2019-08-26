@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,10 +14,19 @@ namespace SimulationSorts
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+
+        //Tao biến random chứa giá trị số ngẫu nhiên cho nút
+        Random random = new Random();
+        int[] M;//mảng chứa các giá trị số nguyên
+        Button[] Mn;//mảng tao nút
+        int HEIGHT = 50;//chiều cao lúc di chuyên của button
+        int SIZE = 50;//kích thước nút
+        int KhoangCachNut = 50;
+
+
         public frmMain()
         {
             InitializeComponent();
-            
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -25,41 +36,40 @@ namespace SimulationSorts
             radiobtnTangDan.Checked = true;
         }
 
-        //Tao biến random chứa giá trị số ngẫu nhiên cho nút
-        Random random = new Random();
-        int[] M;//mảng chứa các giá trị số nguyên
-        Button[] Mn;//mảng tao nút
-        int HEIGHT = 60;//chiều cao lúc di chuyên của button
-        int SIZE = 50;//kích thước nút
-        int KhoangCachNut = 50;
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Bạn có muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 Application.Exit();
             }
         }
 
-        private void btnTaoNut_Click(object sender, EventArgs e)
+        #region XỬ LÝ NHẬP DỮ LIỆU MẢNG TẠO NÚT
+        private void btnNhapTuBanPhim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //lấy giá trị n nhập vao từ bàn phím
-            int n = int.Parse(txtSoNut.Text.Trim());
-            M = new int[n];
-            Mn = new Button[n];
+            frmNhapDuLieuMang frm = new frmNhapDuLieuMang(getDataTaoNut);
+            //frm.data = new frmNhapDuLieuMang.SendMessage(getData);
+            frm.ShowDialog();
+        }
+
+        public void getDataTaoNut(int[] arrDuLieuMang)
+        {
+            int soPhanTuMang = arrDuLieuMang.Length;
+            M = new int[soPhanTuMang];
+            Mn = new Button[soPhanTuMang];
             //xoá giao diện cũ đi trong panel nút
             pnNut.Controls.Clear();
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < soPhanTuMang; i++)
             {
                 Button btn = new Button();
-                //lấy giá trị ngẫu nhiên từ 0 đến 99
-                int value = random.Next(50);
+                int value = arrDuLieuMang[i];
                 btn.Text = value.ToString();
                 btn.Width = btn.Height = SIZE;
                 btn.BackColor = Color.Orange;
                 //Tạo vị trí button trên giao diện hàm point vẽ button theo trục x và y
                 //Đối số 1 là trục x, đối số 2 trong hàm la trục y
-                btn.Location = new Point(KhoangCachNut + pnNut.Controls.Count*(btn.Width + KhoangCachNut), pnNut.Height / 2 - btn.Height / 2);
+                btn.Location = new Point(KhoangCachNut + pnNut.Controls.Count * (btn.Width + KhoangCachNut), pnNut.Height / 2 - btn.Height / 2);
                 //ccho nút xuất hiện giữa trong panel
                 //Add nút vào panel
                 pnNut.Controls.Add(btn);
@@ -68,9 +78,75 @@ namespace SimulationSorts
                 M[i] = value;
                 Mn[i] = btn;
             }
-
         }
 
+        private void btnNhapNgauNhien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmKhoiTaoNgauNhien frm = new frmKhoiTaoNgauNhien(GetDataTaoNutNgauNhien);
+            frm.ShowDialog();
+        }
+
+        public void GetDataTaoNutNgauNhien(int soPhanTuMang)
+        {
+            M = new int[soPhanTuMang];
+            Mn = new Button[soPhanTuMang];
+            //xoá giao diện cũ đi trong panel nút
+            pnNut.Controls.Clear();
+            for (int i = 0; i < soPhanTuMang; i++)
+            {
+                Button btn = new Button();
+                //lấy giá trị ngẫu nhiên từ 1 đến 100
+                int value = random.Next(1, 100);
+                btn.Text = value.ToString();
+                btn.Width = btn.Height = SIZE;
+                btn.BackColor = Color.Orange;
+                //Tạo vị trí button trên giao diện hàm point vẽ button theo trục x và y
+                //Đối số 1 là trục x, đối số 2 trong hàm la trục y
+                btn.Location = new Point(KhoangCachNut + pnNut.Controls.Count * (btn.Width + KhoangCachNut), pnNut.Height / 2 - btn.Height / 2);
+                //ccho nút xuất hiện giữa trong panel
+                //Add nút vào panel
+                pnNut.Controls.Add(btn);
+                //gán giá trị số ngẫu nhiên cho từng phần tử mảng
+                //gán từng nút cho mảng Mn
+                M[i] = value;
+                Mn[i] = btn;
+            }
+        }
+
+        private void btnNhapTuFile_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                FileName = "Select a text file",
+                Filter = "Text files (*.txt)|*.txt",
+                Title = "Open text file"
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    StreamReader streamReader = new StreamReader(openFileDialog.FileName);
+                    String strText = streamReader.ReadToEnd();
+                    string[] arrText = strText.Split(' ');
+                    int n = arrText.Length > 10 ? 10 : arrText.Length;
+                    int[] arrDuLieuMang = new int[n];
+                    for (int i = 0; i < n; i++)
+                    {
+                        arrDuLieuMang[i] = int.Parse(arrText[i]);
+                    }
+                    getDataTaoNut(arrDuLieuMang);
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
+                    $"Details:\n\n{ex.StackTrace}");
+                }
+
+            }
+        }
+        #endregion
+
+        #region XỬ LÝ ĐIỀU KHIỂN
         private void btnBatDau_Click(object sender, EventArgs e)
         {
             switch (comboBoxThuanToan.SelectedIndex)
@@ -103,6 +179,8 @@ namespace SimulationSorts
                     break;
             }
         }
+        #endregion
+
         #region 0 - THUẬT TOÁN SẮP XẾP Selection Sort
 
         #endregion
@@ -154,7 +232,7 @@ namespace SimulationSorts
             st.location2 = vt2;
             st.movingTypes = MovingTypes.UP_DOWN;
 
-            for (int i=0;i < HEIGHT; i++) //Di chuyen len xuong bang chieu cao height khoi tao ban dau
+            for (int i = 0; i < HEIGHT; i++) //Di chuyen len xuong bang chieu cao height khoi tao ban dau
             {
                 //đói số 1  là 0 , tức là ko quan tâm phần trăm chạy 
                 //các bạn tưởng tượng giống phần loading của game vưa load vào
@@ -230,9 +308,8 @@ namespace SimulationSorts
 
             }
             btnBatDau.Enabled = true;
-            btnTaoNut.Enabled = false;
 
-            MessageBox.Show("Mảng đã được sắp xếp xong.", "Thông báo" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Mảng đã được sắp xếp xong.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
